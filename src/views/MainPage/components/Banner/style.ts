@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { colors } from '@sopt-makers/colors';
-import Image from 'next/image';
 import { ReactComponent as IcDownScroll } from '@src/assets/icons/ic_downScroll.svg';
+import Image from 'next/image';
 
 export const Container = styled.section`
   position: relative;
