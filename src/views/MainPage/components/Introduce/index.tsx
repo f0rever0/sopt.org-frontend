@@ -1,7 +1,6 @@
 import { useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { useIsMobile } from '@src/hooks/useDevice';
-import MotionTitle from './MotionTitle';
 import * as S from './style';
 
 export default function Introduce() {
@@ -13,10 +12,10 @@ export default function Introduce() {
   });
 
   const scaleValue = useTransform(scrollYProgress, [1, 0.4], [0.9, 1]);
-  const content = '전국 최대 규모의 대학생 IT 연합 동아리, SOPT를 소개합니다.';
+  const scrollValue = useTransform(scrollYProgress, [1, 0.4], ['100%', '0%']);
 
   const [style, setStyle] = useState<{ opacity?: number; clipPath?: string }>();
-  const scrollValue = useTransform(scrollYProgress, [1, 0.4], ['100%', '0%']);
+  const content = '전국 최대 규모의 대학생 IT 연합 동아리, SOPT를 소개합니다.';
 
   useEffect(() => {
     const unsubscribe = scrollValue.on('change', (value) => {
@@ -36,7 +35,7 @@ export default function Introduce() {
     <S.Background ref={contentRef}>
       <S.Wrapper>
         <S.TextContainer style={{ scale: scaleValue }}>
-          <MotionTitle style={style} content={content} />
+          <S.MotionTitle style={style} data-text={content} />
           <S.BackgroundTitle>{content}</S.BackgroundTitle>
         </S.TextContainer>
       </S.Wrapper>
