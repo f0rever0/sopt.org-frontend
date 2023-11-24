@@ -13,7 +13,7 @@ export default function MotionTitle({ contentRef, content }: MotionTitleProps) {
 
   const { scrollYProgress } = useScroll({
     target: contentRef,
-    offset: ['end center', 'start start'],
+    offset: ['end center', 'start'],
   });
 
   const [style, setStyle] = useState<{ opacity?: number; clipPath?: string }>();
@@ -24,7 +24,7 @@ export default function MotionTitle({ contentRef, content }: MotionTitleProps) {
       const percentValue = Number(value.split('%')[0]);
       const newStyle = isMobileSize
         ? { opacity: (100 - percentValue) / 100 }
-        : { clipPath: `inset(0% ${percentValue}% 0% 0%)` };
+        : { clipPath: `inset(0% ${percentValue}% 0% 0%)`, opacity: 1 };
       setStyle(newStyle);
     });
 
