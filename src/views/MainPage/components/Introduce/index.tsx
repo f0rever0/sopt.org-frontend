@@ -13,7 +13,6 @@ export default function Introduce() {
   const scaleValue = useTransform(scrollYProgress, [1, 0.4], [0.9, 1]);
   const content = '전국 최대 규모의 대학생 IT 연합 동아리, SOPT를 소개합니다.';
 
-  console.log('Introduce', contentRef);
   return (
     <S.Background ref={contentRef}>
       <S.Wrapper>
