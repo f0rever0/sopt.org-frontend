@@ -19,6 +19,7 @@ export default function MotionTitle({ contentRef, content }: MotionTitleProps) {
   const [style, setStyle] = useState<{ opacity?: number; clipPath?: string }>();
   const scrollValue = useTransform(scrollYProgress, [1, 0.4], ['100%', '0%']);
 
+  console.log(contentRef, scrollYProgress.get());
   useEffect(() => {
     const unsubscribe = scrollValue.on('change', (value) => {
       console.log('MotionTitle style change vercel', value);
