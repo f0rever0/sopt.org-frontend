@@ -16,6 +16,7 @@ export default function MotionTitle({ contentRef, content }: MotionTitleProps) {
     offset: ['end center', 'start'],
   });
 
+  console.log('MotionTitle', contentRef);
   const [style, setStyle] = useState<{ opacity?: number; clipPath?: string }>();
   const scrollValue = useTransform(scrollYProgress, [1, 0.4], ['100%', '0%']);
 
